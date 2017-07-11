@@ -1,0 +1,24 @@
+{
+    "name": "adapt-theme-ukraine",
+    "repository": "git@github.com:theodi/adapt-theme-ukraine.git",
+    "framework": "^2.0.0",
+    "version": "0.4.1",
+    "homepage": "https://github.com/theodi/adapt-theme-ukraine/",
+    "issues": "https://github.com/theodi/adapt-theme-ukraine/issues",
+    "displayName": "Ukraine (Gov)",
+    "theme": "Ukraine",
+    "description": "A custom theme for Ukraine modules",
+    "main": "js/ukraine.js",
+    "keywords": [
+        "adapt-plugin",
+        "adapt-theme"
+    ],
+    "licenukraine": "GPLv3",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
