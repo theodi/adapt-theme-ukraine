@@ -24,7 +24,7 @@
           "type" : "string",
           "inputType" : "Text",
           "title" : "Contact text",
-          "default" : "contact",
+          "default" : "Contact",
           "help" : "The link text which is shown against the email address.",
           "translatable" : true
       }

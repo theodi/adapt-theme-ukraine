@@ -6,7 +6,7 @@
     "homepage": "https://github.com/theodi/adapt-theme-ukraine/",
     "issues": "https://github.com/theodi/adapt-theme-ukraine/issues",
     "displayName": "Ukraine (Gov)",
-    "theme": "Ukraine",
+    "theme": "ukraine",
     "description": "A custom theme for Ukraine modules",
     "main": "js/ukraine.js",
     "keywords": [
@@ -14,7 +14,6 @@
         "adapt-theme"
     ],
     "licenukraine": "GPLv3",
-    "targetAttribute": "_ukraine",
     "ignore": [
         "**/.*",
         "node_modules",
