@@ -56,7 +56,11 @@
 		</div></div><div class="component socialbuttons-component component-right nth-child-2">
 		<div class="about-section">
 			<div class="about-credit">
+			{{#if _globals._theme._ukraine.aboutCredit}}
 				{{{_globals._theme._ukraine.aboutCredit}}}
+			{{else}}
+				{{{_globals._extensions._aboutPage.aboutCredit}}}
+			{{/if}}
 			</div>
 			<div class="about-links">
 

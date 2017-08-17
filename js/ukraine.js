@@ -28,10 +28,10 @@ define(function(require) {
 		$('.intro-logo .graphic-widget img').attr('data-large','adapt/css/assets/intro-logo.png');
 		$('.intro-logo .graphic-widget img').attr('data-small','adapt/css/assets/intro-logo.png');
 		try {
-			theme = view.model.get('_theme');
-			console.log(theme);
-			email = Adapt.course.get('_globals')._theme._ukraine.contactEMail;
-			text = Adapt.course.get('_globals')._theme._ukraine.contactLinkText;
+            email = Adapt.course.get('_globals')._extensions._aboutPage.contactEMail;
+            text = Adapt.course.get('_globals')._extensions._aboutPage.contactLinkText;
+			if (!email) { email = Adapt.course.get('_globals')._theme._ukraine.contactEMail; }
+			if (!text) { text = Adapt.course.get('_globals')._theme._ukraine.contactLinkText; }
 			if( $('.about-links').size() > 0) {
             	$('.about-links').append(' | ');
         	} 
