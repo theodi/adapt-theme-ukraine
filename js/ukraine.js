@@ -80,9 +80,25 @@ define(function(require) {
 	function showMessage(phraseId) {
 		console.log("In show message");
 		
+		var saveTitle = Adapt.course.get('_trackingHub').saveTitle;
+		var saveBody = Adapt.course.get('_trackingHub').saveBody;
+		var items = Adapt.course.get('_trackingHub').fields;
+
+		var fields = "<div align='center'>";
+		_.each(items, function(item) {
+			var required = "";
+			if(item.required) {
+				required = "required";
+			}
+			fields += item.title + ": <input id='"+item.id+"' type='" + item.type + "' class='email-input' placeholder='" + item.placeholder + "' " + required + "></input><br/>";
+		});
+		fields += "<br/><br/><input type='submit' id='email_submit' value='OK' style='padding: 10px;' class='notify-popup-done course_link' role='button' aria-label='submit email' onClick='getUser();'></input></div>";
+
+		saveBody = saveBody + fields;
+
 		var alertObject = {
-            title: "Save your progress, learn anywhere...",
-            body: "<p>Please enter your details below.<br/>You will receive an email linking to your unique profile so you can save your progress and resume your learning on any device.</p><br/><div align='center'><input type='email' id='email' class='email-input' placeholder='Email address' required></input><br/><button type='input' id='email_submit' value='Submit' style='padding: 10px; border-radius: 0;' class='notify-popup-done' role='button' aria-label='submit email' onClick='getUser();'>Submit</button></div>"
+            title: saveTitle,
+            body: saveBody
         };
         
         Adapt.once("notify:closed", function() {
@@ -152,12 +168,16 @@ define(function(require) {
 
 function validateInput(user) {
 	valid = true;
-	if (!validateEmail(user.email)) {
-		valid = false;
-	}
-	if (!user.firstname || !user.lastname || !user.country || !user.gender) {
-		valid = false;
-	}
+	var Adapt = require('coreJS/adapt');
+	var items = Adapt.course.get('_trackingHub').fields;
+	_.each(items, function(item) {
+		if (item.required && !user[item.id]) {
+			valid = false;
+		}
+		if (item.type == "email" && !validateEmail(user[item.id])) {
+			valid = false;
+		}
+	});
 	return valid;
 }
 
@@ -169,12 +189,12 @@ function validateEmail(email) {
 function getUser() {
 	var Adapt = require('coreJS/adapt');
 	user = {};
-	user.email = $("input[id='email']").val();
-	user.firstname = $("input[id='firstname']").val();
-	user.lastname = $("input[id='lastname']").val();
-	user.country = $("#countries").val();
-	user.region = $("#region").val();
-	user.gender = $("#gender").val();
+	var items = Adapt.course.get('_trackingHub').fields;
+
+	_.each(items, function(item) {
+		user[item.id] = $("input[id='" + item.id + "']").val();
+	});
+
 	if (validateInput(user)) {
 		Adapt.trigger('userDetails:updated',user);
 	}
