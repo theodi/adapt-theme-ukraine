@@ -32,6 +32,7 @@ body {
 		}
 	}
 }
+
 .graphic-attribution {
     position: relative;
     background-color: rgba(100,100,100,0.85);
@@ -42,6 +43,12 @@ body {
 }
 .graphic-attribution a {
     color: white;
+}
+.gmcq-component .gmcq-item-checkbox {
+	top: -24px;
+}
+.gmcq-component .gmcq-item .graphic-attribution {
+    bottom: 1.9em;
 }
 h5 {
 	font-size: 21.25px;
@@ -913,6 +920,9 @@ h5 {
 			background-color: darken(@primary-color-inverted, 20%);
 		}
 		.mcq-widget.disabled .mcq-item label.selected.disabled {
+			background-color: @primary-color-inverted;
+		}
+		.gmcq-component .gmcq-item-checkbox {
 			background-color: @primary-color-inverted;
 		}
 		&.color-one {
