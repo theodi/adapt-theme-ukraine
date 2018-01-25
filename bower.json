@@ -2,7 +2,7 @@
     "name": "adapt-theme-ukraine",
     "repository": "git@github.com:theodi/adapt-theme-ukraine.git",
     "framework": "^2.0.0",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "homepage": "https://github.com/theodi/adapt-theme-ukraine/",
     "issues": "https://github.com/theodi/adapt-theme-ukraine/issues",
     "displayName": "Ukraine (Gov)",

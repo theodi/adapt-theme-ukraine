@@ -152,7 +152,7 @@ define(function(require) {
 		if (!sessionEmail) {
 			emailPresent = false;
 			checkWelcome(user);
-			$('#save-section').html("<button class='slbutton' id='saveSession'>Save progress</button>");
+			$('#save-section').html("<button class='slbutton' id='saveSession'>"+Adapt.course.get('_trackingHub').saveTitle+"</button>");
 			$('#save-section').fadeIn();
 			click_bind = false;
 			$('.save-section-outer').unbind('click');
